@@ -6,9 +6,15 @@ using namespace std;
 
 void desenhar(){
     GUI::displayInit();
+
     GUI::setLight(0,0,2,0,true,false);
-    GUI::setColor(0.8,0.0,0.0);
+    GUI::drawOrigin(1);
+    GUI::setColor(0.0,0.8,0.0);
     GUI::drawFloor();
+
+    GUI::setColor(0.8,0.0,0.8);
+    GUI::drawSphere(2,2,0,0.25);
+
     GUI::displayEnd();
 }
 
