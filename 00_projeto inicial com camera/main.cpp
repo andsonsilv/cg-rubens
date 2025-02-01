@@ -6,6 +6,7 @@ using namespace std;
 
 void desenhar(){
     GUI::displayInit();
+    GUI::setLight(0,0,2,0,true,false);
     GUI::setColor(0.8,0.0,0.0);
     GUI::drawFloor();
     GUI::displayEnd();
