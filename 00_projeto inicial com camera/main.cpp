@@ -4,6 +4,9 @@ using namespace std;
 
 #include <gui.h>
 
+Vetor3D posicaoEspera = Vetor3D(2,2,3);
+float raioEspera = 0.25;
+
 void desenhar(){
     GUI::displayInit();
 
@@ -13,7 +16,7 @@ void desenhar(){
     GUI::drawFloor();
 
     GUI::setColor(0.8,0.0,0.8);
-    GUI::drawSphere(2,2,0,0.25);
+    GUI::drawSphere(posicaoEspera.x,posicaoEspera.y,posicaoEspera.z,raioEspera);
 
     GUI::displayEnd();
 }
