@@ -23,15 +23,54 @@ void desenhar(){
     GUI::setColor(0.8,0.0,0.8);
     GUI::drawSphere(posicaoEsfera.x,posicaoEsfera.y,posicaoEsfera.z,raioEspera);
 
-    glBegin(GL_QUADS);
-        glNormal3b(0,0,1);
-        glVertex3f(0,0,0);
-        glVertex3f(1,0,0);
-        glVertex3f(1,1,0);
-        glVertex3f(0,1,0);
+    glBegin(GL_QUADS); //frente
+    glNormal3b(0,0,1);
+    glVertex3f(0,0,1);
+    glVertex3f(1,0,1);
+    glVertex3f(1,1,1);
+    glVertex3f(0,1,1);
     glEnd();
 
-    // GUI::drawBox(1,1,-1,2,2,0);
+    glBegin(GL_QUADS); //trás
+    glNormal3b(0,0,-1);
+    glVertex3f(1,0,0);
+    glVertex3f(0,0,0);
+    glVertex3f(0,1,0);
+    glVertex3f(1,1,0);
+    glEnd();
+
+    glBegin(GL_QUADS); //direita
+    glNormal3b(1,0,0);
+    glVertex3f(1,1,1);
+    glVertex3f(1,0,1);
+    glVertex3f(1,0,0);
+    glVertex3f(1,1,0);
+    glEnd();
+
+    glBegin(GL_QUADS); //esquerda
+    glNormal3b(-1,0,0);
+    glVertex3f(0,1,0);
+    glVertex3f(0,0,0);
+    glVertex3f(0,0,1);
+    glVertex3f(0,1,1);
+    glEnd();
+
+    glBegin(GL_QUADS); //cima
+    glNormal3b(0,1,0);
+    glVertex3f(0,1,0);
+    glVertex3f(0,1,1);
+    glVertex3f(1,1,1);
+    glVertex3f(1,1,0);
+    glEnd();
+
+    glBegin(GL_QUADS); //baixo
+    glNormal3b(0,-1,0);
+    glVertex3f(0,0,0);
+    glVertex3f(1,0,0);
+    glVertex3f(1,0,1);
+    glVertex3f(0,0,1);
+    glEnd();
+
 
     posicaoEsfera.x += glutGUI::drx;
     posicaoEsfera.y += glutGUI::dry;
