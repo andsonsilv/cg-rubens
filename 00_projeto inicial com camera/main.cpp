@@ -15,7 +15,7 @@ void desenhar(){
 
     GUI::setLight(idLuz[0],posicaoLuz.x,posicaoLuz.y,posicaoLuz.z,true,false);
 
-    GUI::drawOrigin(1);
+    GUI::drawOrigin(1.5);
 
     GUI::setColor(0.0,0.8,0.0);
     GUI::drawFloor();
@@ -24,12 +24,12 @@ void desenhar(){
     GUI::drawSphere(posicaoEsfera.x,posicaoEsfera.y,posicaoEsfera.z,raioEspera);
 
     glBegin(GL_POLYGON);
-        glVertex3f(1,1,-0.5);
-        glVertex3f(1,1,0.5);
-        glVertex3f(1,2,0);
+        glVertex3f(0,0,0);
+        glVertex3f(1,0,0);
+        glVertex3f(1,1,0);
     glEnd();
 
-
+    // GUI::drawBox(1,1,-1,2,2,0);
 
     posicaoEsfera.x += glutGUI::drx;
     posicaoEsfera.y += glutGUI::dry;
@@ -60,16 +60,22 @@ void teclado(unsigned char tecla, int x, int y){
     case 'o':
         glutGUI::trans_obj = !glutGUI::trans_obj;
         break;
-    case '1':
+    case '-':
+        posicaoLuz.z -= 0.2;
+        break;
+    case '+':
+        posicaoLuz.z += 0.2;
+        break;
+    case '4':
         posicaoLuz.x -= 0.2;
         break;
-    case '3':
+    case '6':
         posicaoLuz.x += 0.2;
         break;
-    case '2':
+    case '5':
         posicaoLuz.y -= 0.2;
         break;
-    case '5':
+    case '8':
         posicaoLuz.y += 0.2;
     default:
         break;
