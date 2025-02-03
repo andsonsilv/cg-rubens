@@ -7,10 +7,13 @@ using namespace std;
 Vetor3D posicaoEsfera = Vetor3D(2,2,0);
 float raioEspera = 0.25;
 
+Vetor3D posicaoLuz = Vetor3D(0,2,0);
+int idLuz[8] = {0,1,2,3,4,5,6,7};
+
 void desenhar(){
     GUI::displayInit();
 
-    GUI::setLight(0,0,2,0,true,false);
+    GUI::setLight(idLuz[0],posicaoLuz.x,posicaoLuz.y,posicaoLuz.z,true,false);
 
     GUI::drawOrigin(1);
 
@@ -19,6 +22,14 @@ void desenhar(){
 
     GUI::setColor(0.8,0.0,0.8);
     GUI::drawSphere(posicaoEsfera.x,posicaoEsfera.y,posicaoEsfera.z,raioEspera);
+
+    glBegin(GL_POLYGON);
+        glVertex3f(1,1,-0.5);
+        glVertex3f(1,1,0.5);
+        glVertex3f(1,2,0);
+    glEnd();
+
+
 
     posicaoEsfera.x += glutGUI::drx;
     posicaoEsfera.y += glutGUI::dry;
@@ -49,6 +60,17 @@ void teclado(unsigned char tecla, int x, int y){
     case 'o':
         glutGUI::trans_obj = !glutGUI::trans_obj;
         break;
+    case '1':
+        posicaoLuz.x -= 0.2;
+        break;
+    case '3':
+        posicaoLuz.x += 0.2;
+        break;
+    case '2':
+        posicaoLuz.y -= 0.2;
+        break;
+    case '5':
+        posicaoLuz.y += 0.2;
     default:
         break;
     }
