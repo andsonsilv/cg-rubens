@@ -72,28 +72,28 @@ void desenhar(){
     glEnd();
 
     glBegin(GL_POLYGON); //telhadoesquerdo
-    glNormal3b(-0.707,-0.707,0);//falta ajeitar
+    glNormal3b(-1,1,0);
     glVertex3f(0.5,1.5,0.5);
     glVertex3f(0,1,0);
     glVertex3f(0,1,1);
     glEnd();
 
     glBegin(GL_POLYGON); //telhadodireito
-    glNormal3b(0.707,0.707,0);//falta ajeitar
+    glNormal3b(1,1,0);
     glVertex3f(1,1,0);
     glVertex3f(0.5,1.5,0.5);
     glVertex3f(1,1,1);
     glEnd();
 
     glBegin(GL_POLYGON); //telhadofrente
-    glNormal3b(0.707,0.707,0);//falta ajeitar
+    glNormal3b(0,1,1);
     glVertex3f(0,1,1);
     glVertex3f(1,1,1);
     glVertex3f(0.5,1.5,0.5);
     glEnd();
 
     glBegin(GL_POLYGON); //telhadotras
-    glNormal3b(0.707,0.707,0);//falta ajeitar
+    glNormal3b(0,1,-1);
     glVertex3f(0,1,0);
     glVertex3f(0.5,1.5,0.5);
     glVertex3f(1,1,0);
