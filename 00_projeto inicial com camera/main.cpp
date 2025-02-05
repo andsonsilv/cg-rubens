@@ -7,22 +7,11 @@ using namespace std;
 Vetor3D posicaoEsfera = Vetor3D(2,2,0);
 float raioEspera = 0.25;
 
-Vetor3D posicaoLuz = Vetor3D(0,2,0);
+Vetor3D posicaoLuz = Vetor3D(0,2,2);
 int idLuz[8] = {0,1,2,3,4,5,6,7};
 
-void desenhar(){
-    GUI::displayInit();
-
-    GUI::setLight(idLuz[0],posicaoLuz.x,posicaoLuz.y,posicaoLuz.z,true,false);
-
-    GUI::drawOrigin(1.5);
-
-    GUI::setColor(0.0,0.8,0.0);
-    GUI::drawFloor();
-
-    GUI::setColor(0.8,0.0,0.8);
-    GUI::drawSphere(posicaoEsfera.x,posicaoEsfera.y,posicaoEsfera.z,raioEspera);
-
+void casa()
+{
     glBegin(GL_QUADS); //frente
     glNormal3b(0,0,1);
     glVertex3f(0,0,1);
@@ -98,6 +87,22 @@ void desenhar(){
     glVertex3f(0.5,1.5,0.5);
     glVertex3f(1,1,0);
     glEnd();
+}
+
+void desenhar(){
+    GUI::displayInit();
+
+    GUI::setLight(idLuz[0],posicaoLuz.x,posicaoLuz.y,posicaoLuz.z,true,false);
+
+    GUI::drawOrigin(1.5);
+
+    GUI::setColor(0.0,0.8,0.0);
+    GUI::drawFloor();
+
+    GUI::setColor(0.8,0.0,0.8);
+    GUI::drawSphere(posicaoEsfera.x,posicaoEsfera.y,posicaoEsfera.z,raioEspera);
+
+    casa();
 
     posicaoEsfera.x += glutGUI::drx;
     posicaoEsfera.y += glutGUI::dry;
