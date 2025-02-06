@@ -4,7 +4,7 @@ using namespace std;
 
 #include <gui.h>
 
-Vetor3D posicaoEsfera = Vetor3D(2,2,0);
+Vetor3D posicaoEsfera = Vetor3D(0,0,0);
 float raioEspera = 0.25;
 
 Vetor3D posicaoLuz = Vetor3D(0,2,2);
@@ -94,20 +94,29 @@ void desenhar(){
 
     GUI::setLight(idLuz[0],posicaoLuz.x,posicaoLuz.y,posicaoLuz.z,true,false);
 
-    GUI::drawOrigin(1.5);
+    GUI::drawOrigin(1.0);
 
     GUI::setColor(0.0,0.8,0.0);
     GUI::drawFloor();
 
-    GUI::setColor(0.8,0.0,0.8);
-    GUI::drawSphere(posicaoEsfera.x,posicaoEsfera.y,posicaoEsfera.z,raioEspera);
 
-    casa();
+
+
 
     posicaoEsfera.x += glutGUI::drx;
     posicaoEsfera.y += glutGUI::dry;
     posicaoEsfera.z += glutGUI::dlrx;
     raioEspera += 0.01*glutGUI::dlx;
+
+    GLdouble plane[4] = {0,0,1,-0.1};
+    glClipPlane(GL_CLIP_PLANE0,plane);
+    glEnable(GL_CLIP_PLANE0);
+
+    GUI::setColor(0.8,0.0,0.8);
+    GUI::drawSphere(posicaoEsfera.x,posicaoEsfera.y,posicaoEsfera.z,raioEspera);
+
+    glDisable(GL_CLIP_PLANE0);
+
 
     GUI::displayEnd();
 }
